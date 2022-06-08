@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form</title>
+<style>
+    #container{
+        width:30%;
+        /* border: 1px solid red; */
+        margin: auto;
+        margin-top: 50px;
+        /* margin-bottom: 10px; */
+        /* display: flex;
+        flex-direction: column;
+        align-items: stretch; */
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 30px
+        
+    }
+    #container input{
+        width: 100%;
+        padding:12px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        resize: vertical;
+
+    }
+    #gender{
+        width: 100%;
+        padding:12px;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        resize: vertical;
+    }
+    *{
+        box-sizing: border-box;
+    }
+</style>
+
+</head>
+<body>
+    <form>
+        <div id="container">
+            <input id="name" type="text" placeholder="Name"><br>
+            <!-- <label for="name">Name</label><br> -->
+            <input id="age" type="number" placeholder="Age"><br>
+            <!-- <label for="age">Age</label><br><br> -->
+            <select id="gender" name="gender" id="">
+                <option value="___">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+           
+            <input id="email" type="text" placeholder="Email"><br>
+            <!-- <label for="email">Email</label><br> -->
+            <input id="mobile" type="text" placeholder="Mobile"><br>
+            <!-- <label for="mobile">Mobile</label><br> -->
+            <input type="submit" />
+            <h1></h1>
+            <h2></h2>
+            <h3></h3>
+            <p></p>
+            <h4></h4>
+
+        </div>
+        
+        
+    </form>
+    
+    
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", MyFunction);
+    // let formtag=document.querySelector("form")
+    let arr=JSON.parse(localStorage.getItem("data"))||[];
+    function MyFunction(event){
+        event.preventDefault();
+        let formobj={
+        names:document.querySelector("#name").value,
+        ages:document.querySelector("#age").value,
+        genders:document.querySelector("#gender").value,   
+        emails:document.querySelector("#email").value,
+        mobiles:document.querySelector("#mobile").value,
+        
+        }
+        arr.push(formobj);
+        // display(arr);
+        localStorage.setItem("data", JSON.stringify(arr))
+    }
+        // function display(arr){
+
+        // }
+</script>
